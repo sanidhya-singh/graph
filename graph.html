@@ -1,0 +1,82 @@
+<head>
+  <title>Graph API Test</title>
+</head>
+
+<body>
+  <div id="fb-root"></div>
+  <div class='ui center aligned segment'>
+    {{> loginButtons}}
+    {{#if currentUser}}
+    <div class='ui center aligned inverted segment'>
+      <div id='dimmer-div' class='ui active dimmer'>
+        <div class='ui text loader'>Fetching data</div>
+      </div>
+      <img class='ui circular centered image' src="{{dp}}" />
+      <div class='ui tiny inverted blue centered statistic'>
+        <div class='value'>
+          {{name}}
+        </div>
+        <div class='label'>
+          Name
+        </div>
+      </div>
+      <div class='ui section divider'></div>
+      <div class='ui two red inverted tiny statistics'>
+        <div class='teal statistic'>
+          <div class='value'>
+            {{gender}}
+          </div>
+          <div class='label'>
+            Gender
+          </div>
+        </div>
+        <div class='green statistic'>
+          <div class='value'>
+            {{age}}
+          </div>
+          <div class='label'>
+            Age
+          </div>
+        </div>
+      </div>
+      <div class='ui section divider'></div>
+      <div class='ui two purple inverted tiny statistics'>
+        <div class='teal statistic'>
+          <div class='value'>
+            {{locale}}
+          </div>
+          <div class='label'>
+            Region
+          </div>
+        </div>
+        <div class='ui section divider'></div>
+        <div class='green statistic'>
+          <div class='value'>
+            <a class='ui large facebook cirucular button' href="{{link}}" target="_blank"><i class='facebook icon'></i></a>
+          </div>
+          <div class='label'>
+            Link
+          </div>
+        </div>
+      </div>
+      {{> facebookLike config}}
+    </div>
+    {{> postStatus}}
+    {{/if}}
+  </div>
+</body>
+
+<template name="postStatus">
+  <div class='ui inverted segment'>
+  <form class='ui form'>
+      <div class="field">
+        <textarea></textarea>
+      </div>
+    <label for='submit-status' class='ui labeled icon green button'>
+      <i class='send icon'></i>
+        Post
+    </label>
+    <input type="submit" name='submit-status' style='display: none'/>
+  </form>
+</div>
+</template>
